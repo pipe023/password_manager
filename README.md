@@ -74,7 +74,7 @@ build_installer.bat
 ```
 
 The installer is written to
-`dist\installer\PyManager-Setup-1.0.0.exe`. It installs per-user under
+`dist\installer\PyManager-Setup-1.0.1.exe`. It installs per-user under
 `%LOCALAPPDATA%\Programs\PyManager`, creates a Start Menu shortcut, and offers
 an optional Desktop shortcut. It does not require administrator privileges.
 
