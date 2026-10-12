@@ -63,6 +63,26 @@ packages in `requirements-build.txt`, then run:
 venv\Scripts\python.exe -m PyInstaller --noconfirm --clean --onefile --windowed --name PyManager --icon "assets\pymanager.ico" --add-data "assets\pymanager_logo.png;assets" --distpath "dist\release" --workpath "build\release" --specpath "build\spec" gui.py
 ```
 
+## Create a Windows installer
+
+Install [Inno Setup 6](https://jrsoftware.org/isinfo.php), then build the app
+executable and compile the installer:
+
+```bat
+build_windows.bat
+build_installer.bat
+```
+
+The installer is written to
+`dist\installer\PyManager-Setup-1.0.0.exe`. It installs per-user under
+`%LOCALAPPDATA%\Programs\PyManager`, creates a Start Menu shortcut, and offers
+an optional Desktop shortcut. It does not require administrator privileges.
+
+The encrypted vault is stored separately under
+`%LOCALAPPDATA%\PyManager\my_vault.enc`; uninstalling the app does not remove
+the vault. Back up the vault file before uninstalling or moving to another
+device.
+
 ## Project files
 
 - `gui.py` — Tkinter desktop interface and application entry point.
@@ -72,3 +92,5 @@ venv\Scripts\python.exe -m PyInstaller --noconfirm --clean --onefile --windowed 
 - `requirements.txt` — Runtime dependencies.
 - `requirements-build.txt` — Runtime and executable-build dependencies.
 - `build_windows.bat` — Windows executable build script.
+- `installer\PyManager.iss` — Inno Setup installer definition.
+- `build_installer.bat` — Windows installer build script.
